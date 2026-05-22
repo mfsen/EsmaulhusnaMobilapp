@@ -327,7 +327,7 @@ fun EsmaAppDashboard(
                     LaunchedEffect(selectedName) {
                         selectedName?.let { sel ->
                             val index = names.indexOfFirst { it.details.id == sel.details.id }
-                            if (index >= 0 && index != pagerState.currentPage) {
+                            if (index >= 0 && index != pagerState.currentPage && !pagerState.isScrollInProgress) {
                                 pagerState.scrollToPage(index)
                             }
                         }
@@ -356,20 +356,22 @@ fun EsmaAppDashboard(
                                 modifier = Modifier.fillMaxSize(),
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) { page ->
-                                val esmaItem = names[page]
-                                EsmaDetailContent(
-                                    item = esmaItem,
-                                    isPlaying = isPlayingAudioId == esmaItem.details.id,
-                                    onClose = { viewModel.selectName(null) },
-                                    onToggleFav = { viewModel.toggleFavorite(esmaItem) },
-                                    onPlayAudio = { viewModel.playPronunciation(esmaItem) },
-                                    onSaveNote = { noteText ->
-                                        viewModel.saveNote(esmaItem.details.id, noteText, esmaItem.isFavorite)
-                                        Toast.makeText(context, "Tefekkür notunuz veri tabanına kaydedildi.", Toast.LENGTH_SHORT).show()
-                                    },
-                                    currentPage = page,
-                                    totalPages = names.size
-                                )
+                                val esmaItem = names.getOrNull(page)
+                                if (esmaItem != null) {
+                                    EsmaDetailContent(
+                                        item = esmaItem,
+                                        isPlaying = isPlayingAudioId == esmaItem.details.id,
+                                        onClose = { viewModel.selectName(null) },
+                                        onToggleFav = { viewModel.toggleFavorite(esmaItem) },
+                                        onPlayAudio = { viewModel.playPronunciation(esmaItem) },
+                                        onSaveNote = { noteText ->
+                                            viewModel.saveNote(esmaItem.details.id, noteText, esmaItem.isFavorite)
+                                            Toast.makeText(context, "Tefekkür notunuz veri tabanına kaydedildi.", Toast.LENGTH_SHORT).show()
+                                        },
+                                        currentPage = page,
+                                        totalPages = names.size
+                                    )
+                                }
                             }
                         }
                     }

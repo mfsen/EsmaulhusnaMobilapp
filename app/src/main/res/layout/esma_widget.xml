@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:padding="16dp">
+
+    <!-- Top Bar -->
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/widget_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_widget_star"
+            android:contentDescription="Star" />
+
+        <TextView
+            android:id="@+id/widget_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/widget_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:text="SAATLİK ESMA TEFEKKÜRÜ"
+            android:textColor="#E6C363"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:letterSpacing="0.08" />
+
+        <ImageView
+            android:id="@+id/widget_btn_refresh"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_widget_refresh"
+            android:contentDescription="Refresh Name" />
+
+    </RelativeLayout>
+
+    <!-- Main Content Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_bar"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/widget_arabic_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الرَّحْمَنُ"
+            android:textColor="#E6C363"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/widget_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="er-Rahmân"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/widget_meaning_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Dünya hayatında zerre kadar ayırt etmeksizin tüm mahlukata şefkat ve merhamet eden."
+            android:textColor="#CFE0DC"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:maxLines="3"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+</RelativeLayout>
