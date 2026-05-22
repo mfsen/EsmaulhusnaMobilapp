@@ -1,0 +1,6 @@
+{
+  "name": "Esma-ül Hüsna",
+  "description": "Allah'ın 99 ismi (Esma-ül Hüsna) ve anlamlarını öğrenebileceğiniz, tefekkür edip notlar alabileceğiniz, sesli okuma ve hatırlatıcılı huzur verici bir uygulama.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
